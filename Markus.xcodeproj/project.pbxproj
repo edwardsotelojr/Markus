@@ -1,0 +1,809 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5FCB37627228BF600FABEFA /* Markus WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D5FCB37C27228BF600FABEFA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5FCB37A27228BF600FABEFA /* Interface.storyboard */; };
+		D5FCB37E27228BF800FABEFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5FCB37D27228BF800FABEFA /* Assets.xcassets */; };
+		D5FCB38527228BF800FABEFA /* Markus WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D5FCB38427228BF800FABEFA /* Markus WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D5FCB38A27228BF800FABEFA /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB38927228BF800FABEFA /* InterfaceController.swift */; };
+		D5FCB38C27228BF800FABEFA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB38B27228BF800FABEFA /* ExtensionDelegate.swift */; };
+		D5FCB38E27228BF800FABEFA /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB38D27228BF800FABEFA /* NotificationController.swift */; };
+		D5FCB39027228BF800FABEFA /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB38F27228BF800FABEFA /* ComplicationController.swift */; };
+		D5FCB39227228BF900FABEFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5FCB39127228BF900FABEFA /* Assets.xcassets */; };
+		D5FCB39E27228BF900FABEFA /* MarkusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB39D27228BF900FABEFA /* MarkusTests.swift */; };
+		D5FCB3A927228BF900FABEFA /* MarkusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB3A827228BF900FABEFA /* MarkusUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5FCB37727228BF600FABEFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5FCB36B27228BF500FABEFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5FCB37427228BF600FABEFA;
+			remoteInfo = "Markus WatchKit App";
+		};
+		D5FCB38627228BF800FABEFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5FCB36B27228BF500FABEFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5FCB38327228BF800FABEFA;
+			remoteInfo = "Markus WatchKit Extension";
+		};
+		D5FCB39A27228BF900FABEFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5FCB36B27228BF500FABEFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5FCB38327228BF800FABEFA;
+			remoteInfo = "Markus WatchKit Extension";
+		};
+		D5FCB3A527228BF900FABEFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5FCB36B27228BF500FABEFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5FCB37427228BF600FABEFA;
+			remoteInfo = "Markus WatchKit App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D5FCB3B027228BF900FABEFA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D5FCB38527228BF800FABEFA /* Markus WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FCB3B427228BF900FABEFA /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D5FCB37627228BF600FABEFA /* Markus WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D5FCB37127228BF600FABEFA /* Markus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markus WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5FCB37B27228BF600FABEFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		D5FCB37D27228BF800FABEFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5FCB37F27228BF800FABEFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5FCB38427228BF800FABEFA /* Markus WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Markus WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5FCB38927228BF800FABEFA /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		D5FCB38B27228BF800FABEFA /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		D5FCB38D27228BF800FABEFA /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		D5FCB38F27228BF800FABEFA /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		D5FCB39127228BF900FABEFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5FCB39327228BF900FABEFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5FCB39427228BF900FABEFA /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		D5FCB39927228BF900FABEFA /* MarkusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarkusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5FCB39D27228BF900FABEFA /* MarkusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkusTests.swift; sourceTree = "<group>"; };
+		D5FCB39F27228BF900FABEFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5FCB3A427228BF900FABEFA /* MarkusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarkusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5FCB3A827228BF900FABEFA /* MarkusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkusUITests.swift; sourceTree = "<group>"; };
+		D5FCB3AA27228BF900FABEFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5FCB38127228BF800FABEFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FCB39627228BF900FABEFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FCB3A127228BF900FABEFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5FCB36A27228BF500FABEFA = {
+			isa = PBXGroup;
+			children = (
+				D5FCB37927228BF600FABEFA /* Markus WatchKit App */,
+				D5FCB38827228BF800FABEFA /* Markus WatchKit Extension */,
+				D5FCB39C27228BF900FABEFA /* MarkusTests */,
+				D5FCB3A727228BF900FABEFA /* MarkusUITests */,
+				D5FCB37227228BF600FABEFA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5FCB37227228BF600FABEFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5FCB37127228BF600FABEFA /* Markus.app */,
+				D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */,
+				D5FCB38427228BF800FABEFA /* Markus WatchKit Extension.appex */,
+				D5FCB39927228BF900FABEFA /* MarkusTests.xctest */,
+				D5FCB3A427228BF900FABEFA /* MarkusUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5FCB37927228BF600FABEFA /* Markus WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				D5FCB37A27228BF600FABEFA /* Interface.storyboard */,
+				D5FCB37D27228BF800FABEFA /* Assets.xcassets */,
+				D5FCB37F27228BF800FABEFA /* Info.plist */,
+			);
+			path = "Markus WatchKit App";
+			sourceTree = "<group>";
+		};
+		D5FCB38827228BF800FABEFA /* Markus WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D5FCB38927228BF800FABEFA /* InterfaceController.swift */,
+				D5FCB38B27228BF800FABEFA /* ExtensionDelegate.swift */,
+				D5FCB38D27228BF800FABEFA /* NotificationController.swift */,
+				D5FCB38F27228BF800FABEFA /* ComplicationController.swift */,
+				D5FCB39127228BF900FABEFA /* Assets.xcassets */,
+				D5FCB39327228BF900FABEFA /* Info.plist */,
+				D5FCB39427228BF900FABEFA /* PushNotificationPayload.apns */,
+			);
+			path = "Markus WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		D5FCB39C27228BF900FABEFA /* MarkusTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5FCB39D27228BF900FABEFA /* MarkusTests.swift */,
+				D5FCB39F27228BF900FABEFA /* Info.plist */,
+			);
+			path = MarkusTests;
+			sourceTree = "<group>";
+		};
+		D5FCB3A727228BF900FABEFA /* MarkusUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D5FCB3A827228BF900FABEFA /* MarkusUITests.swift */,
+				D5FCB3AA27228BF900FABEFA /* Info.plist */,
+			);
+			path = MarkusUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5FCB37027228BF500FABEFA /* Markus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5FCB3B527228BF900FABEFA /* Build configuration list for PBXNativeTarget "Markus" */;
+			buildPhases = (
+				D5FCB36F27228BF500FABEFA /* Resources */,
+				D5FCB3B427228BF900FABEFA /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5FCB37827228BF600FABEFA /* PBXTargetDependency */,
+			);
+			name = Markus;
+			productName = Markus;
+			productReference = D5FCB37127228BF600FABEFA /* Markus.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		D5FCB37427228BF600FABEFA /* Markus WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5FCB3B127228BF900FABEFA /* Build configuration list for PBXNativeTarget "Markus WatchKit App" */;
+			buildPhases = (
+				D5FCB37327228BF600FABEFA /* Resources */,
+				D5FCB3B027228BF900FABEFA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5FCB38727228BF800FABEFA /* PBXTargetDependency */,
+			);
+			name = "Markus WatchKit App";
+			productName = "Markus WatchKit App";
+			productReference = D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		D5FCB38327228BF800FABEFA /* Markus WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5FCB3AD27228BF900FABEFA /* Build configuration list for PBXNativeTarget "Markus WatchKit Extension" */;
+			buildPhases = (
+				D5FCB38027228BF800FABEFA /* Sources */,
+				D5FCB38127228BF800FABEFA /* Frameworks */,
+				D5FCB38227228BF800FABEFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Markus WatchKit Extension";
+			productName = "Markus WatchKit Extension";
+			productReference = D5FCB38427228BF800FABEFA /* Markus WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		D5FCB39827228BF900FABEFA /* MarkusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5FCB3B827228BF900FABEFA /* Build configuration list for PBXNativeTarget "MarkusTests" */;
+			buildPhases = (
+				D5FCB39527228BF900FABEFA /* Sources */,
+				D5FCB39627228BF900FABEFA /* Frameworks */,
+				D5FCB39727228BF900FABEFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5FCB39B27228BF900FABEFA /* PBXTargetDependency */,
+			);
+			name = MarkusTests;
+			productName = MarkusTests;
+			productReference = D5FCB39927228BF900FABEFA /* MarkusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D5FCB3A327228BF900FABEFA /* MarkusUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5FCB3BB27228BF900FABEFA /* Build configuration list for PBXNativeTarget "MarkusUITests" */;
+			buildPhases = (
+				D5FCB3A027228BF900FABEFA /* Sources */,
+				D5FCB3A127228BF900FABEFA /* Frameworks */,
+				D5FCB3A227228BF900FABEFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5FCB3A627228BF900FABEFA /* PBXTargetDependency */,
+			);
+			name = MarkusUITests;
+			productName = MarkusUITests;
+			productReference = D5FCB3A427228BF900FABEFA /* MarkusUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5FCB36B27228BF500FABEFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					D5FCB37027228BF500FABEFA = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					D5FCB37427228BF600FABEFA = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					D5FCB38327228BF800FABEFA = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					D5FCB39827228BF900FABEFA = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = D5FCB38327228BF800FABEFA;
+					};
+					D5FCB3A327228BF900FABEFA = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = D5FCB37427228BF600FABEFA;
+					};
+				};
+			};
+			buildConfigurationList = D5FCB36E27228BF500FABEFA /* Build configuration list for PBXProject "Markus" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D5FCB36A27228BF500FABEFA;
+			productRefGroup = D5FCB37227228BF600FABEFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5FCB37027228BF500FABEFA /* Markus */,
+				D5FCB37427228BF600FABEFA /* Markus WatchKit App */,
+				D5FCB38327228BF800FABEFA /* Markus WatchKit Extension */,
+				D5FCB39827228BF900FABEFA /* MarkusTests */,
+				D5FCB3A327228BF900FABEFA /* MarkusUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5FCB36F27228BF500FABEFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FCB37327228BF600FABEFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5FCB37E27228BF800FABEFA /* Assets.xcassets in Resources */,
+				D5FCB37C27228BF600FABEFA /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FCB38227228BF800FABEFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5FCB39227228BF900FABEFA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FCB39727228BF900FABEFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FCB3A227228BF900FABEFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5FCB38027228BF800FABEFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5FCB38E27228BF800FABEFA /* NotificationController.swift in Sources */,
+				D5FCB39027228BF800FABEFA /* ComplicationController.swift in Sources */,
+				D5FCB38C27228BF800FABEFA /* ExtensionDelegate.swift in Sources */,
+				D5FCB38A27228BF800FABEFA /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FCB39527228BF900FABEFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5FCB39E27228BF900FABEFA /* MarkusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FCB3A027228BF900FABEFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5FCB3A927228BF900FABEFA /* MarkusUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5FCB37827228BF600FABEFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5FCB37427228BF600FABEFA /* Markus WatchKit App */;
+			targetProxy = D5FCB37727228BF600FABEFA /* PBXContainerItemProxy */;
+		};
+		D5FCB38727228BF800FABEFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5FCB38327228BF800FABEFA /* Markus WatchKit Extension */;
+			targetProxy = D5FCB38627228BF800FABEFA /* PBXContainerItemProxy */;
+		};
+		D5FCB39B27228BF900FABEFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5FCB38327228BF800FABEFA /* Markus WatchKit Extension */;
+			targetProxy = D5FCB39A27228BF900FABEFA /* PBXContainerItemProxy */;
+		};
+		D5FCB3A627228BF900FABEFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5FCB37427228BF600FABEFA /* Markus WatchKit App */;
+			targetProxy = D5FCB3A527228BF900FABEFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5FCB37A27228BF600FABEFA /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5FCB37B27228BF600FABEFA /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5FCB3AB27228BF900FABEFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D5FCB3AC27228BF900FABEFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5FCB3AE27228BF900FABEFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				INFOPLIST_FILE = "Markus WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.Markus.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		D5FCB3AF27228BF900FABEFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				INFOPLIST_FILE = "Markus WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.Markus.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		D5FCB3B227228BF900FABEFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				IBSC_MODULE = Markus_WatchKit_Extension;
+				INFOPLIST_FILE = "Markus WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.Markus.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		D5FCB3B327228BF900FABEFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				IBSC_MODULE = Markus_WatchKit_Extension;
+				INFOPLIST_FILE = "Markus WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.Markus.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		D5FCB3B627228BF900FABEFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.Markus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D5FCB3B727228BF900FABEFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.Markus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D5FCB3B927228BF900FABEFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				INFOPLIST_FILE = MarkusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.MarkusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Markus WatchKit Extension.appex/Markus WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		D5FCB3BA27228BF900FABEFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				INFOPLIST_FILE = MarkusTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.MarkusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Markus WatchKit Extension.appex/Markus WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		D5FCB3BC27228BF900FABEFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				INFOPLIST_FILE = MarkusUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.MarkusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Markus WatchKit App";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		D5FCB3BD27228BF900FABEFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX2464TT2X;
+				INFOPLIST_FILE = MarkusUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = easjr.MarkusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Markus WatchKit App";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5FCB36E27228BF500FABEFA /* Build configuration list for PBXProject "Markus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5FCB3AB27228BF900FABEFA /* Debug */,
+				D5FCB3AC27228BF900FABEFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5FCB3AD27228BF900FABEFA /* Build configuration list for PBXNativeTarget "Markus WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5FCB3AE27228BF900FABEFA /* Debug */,
+				D5FCB3AF27228BF900FABEFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5FCB3B127228BF900FABEFA /* Build configuration list for PBXNativeTarget "Markus WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5FCB3B227228BF900FABEFA /* Debug */,
+				D5FCB3B327228BF900FABEFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5FCB3B527228BF900FABEFA /* Build configuration list for PBXNativeTarget "Markus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5FCB3B627228BF900FABEFA /* Debug */,
+				D5FCB3B727228BF900FABEFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5FCB3B827228BF900FABEFA /* Build configuration list for PBXNativeTarget "MarkusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5FCB3B927228BF900FABEFA /* Debug */,
+				D5FCB3BA27228BF900FABEFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5FCB3BB27228BF900FABEFA /* Build configuration list for PBXNativeTarget "MarkusUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5FCB3BC27228BF900FABEFA /* Debug */,
+				D5FCB3BD27228BF900FABEFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5FCB36B27228BF500FABEFA /* Project object */;
+}
