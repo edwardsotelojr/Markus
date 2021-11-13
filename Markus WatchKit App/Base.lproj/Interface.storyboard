@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14256" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="18122" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch44"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14243"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14219"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="18022"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
+        <scene sceneID="flC-mg-UNS">
+            <objects>
+                <controller contentMode="scaleAspectFill" animationDuration="2" id="7Qj-B7-nBQ">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Verfication Code" id="V4B-ps-tfm"/>
+                        <label alignment="center" verticalAlignment="center" text="1 0 1 5 8 3" textAlignment="center" baselineAdjustment="alignCenters" id="VTi-Fa-uzN">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                        </label>
+                    </items>
+                    <color key="backgroundColor" red="0.1765114367" green="0.6259343624" blue="0.76989209650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="223" y="9"/>
+        </scene>
+        <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Markus_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <button width="1" alignment="left" hidden="YES" title="Record" id="7j7-2H-tUi">
+                            <connections>
+                                <action selector="startRecording" destination="AgC-eL-Hgc" id="qPL-FX-SeQ"/>
+                            </connections>
+                        </button>
+                        <label width="1" widthAdjustment="7" alignment="center" verticalAlignment="center" text="Verification Code" textAlignment="center" id="uNo-7g-Pt5">
+                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="center" text="0 3 0 2" id="4jV-hr-8QW"/>
+                        <button width="1" alignment="left" hidden="YES" title="Send Data" id="Mx8-ik-mQz"/>
+                    </items>
+                    <connections>
+                        <outlet property="VerificationCode" destination="4jV-hr-8QW" id="2zN-yZ-W6j"/>
+                        <outlet property="startRecording" destination="7j7-2H-tUi" id="S2r-Wp-Msg"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
@@ -32,14 +65,14 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Markus_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Markus_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="345"/>
         </scene>

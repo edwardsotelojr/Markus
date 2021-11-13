@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45FC78DF08BA8C15084A8C3E /* Pods_Markus_MarkusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDC2A4EF709ECE97961DDE3 /* Pods_Markus_MarkusUITests.framework */; };
+		8F95D1FFC86ADA16E54AF8EC /* Pods_Markus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A564350C90AD94129230A3 /* Pods_Markus.framework */; };
+		97C5982F15D3A5A502B9765B /* Pods_Markus_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BDCBF1A15D4A0C80E931A7 /* Pods_Markus_WatchKit_Extension.framework */; };
+		AEAEFFFD93777B81F9FF941C /* Pods_MarkusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8598A88B98DF26D06A079211 /* Pods_MarkusTests.framework */; };
+		CA3A384CC958FC9B175FD709 /* Pods_Markus_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5779A6C0AFB7587C68C65A6F /* Pods_Markus_WatchKit_App.framework */; };
+		D53C365C2734CF4B00B4D1F6 /* index.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C365B2734CF4B00B4D1F6 /* index.swift */; };
+		D53C365F2734DFFE00B4D1F6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C365E2734DFFE00B4D1F6 /* Data.swift */; };
+		D53C36632734E72900B4D1F6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D53C36622734E72900B4D1F6 /* HealthKit.framework */; };
+		D55E14FA27321973002D6994 /* MemoFileNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E14F927321973002D6994 /* MemoFileNameHelper.swift */; };
+		D55E14FC27321997002D6994 /* MemoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E14FB27321997002D6994 /* MemoModels.swift */; };
+		D55E14FE273219B3002D6994 /* MemoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E14FD273219B3002D6994 /* MemoStore.swift */; };
+		D55E150127338B83002D6994 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E150027338B83002D6994 /* FileManagerExtension.swift */; };
 		D5FCB37627228BF600FABEFA /* Markus WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D5FCB37C27228BF600FABEFA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5FCB37A27228BF600FABEFA /* Interface.storyboard */; };
 		D5FCB37E27228BF800FABEFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5FCB37D27228BF800FABEFA /* Assets.xcassets */; };
@@ -77,6 +89,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F860B235F9B3F5BC46086C9 /* Pods-Markus WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-Markus WatchKit App/Pods-Markus WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		26BDCBF1A15D4A0C80E931A7 /* Pods_Markus_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markus_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55FEFE73ED72401CA18EFA85 /* Pods-Markus-MarkusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus-MarkusUITests.debug.xcconfig"; path = "Target Support Files/Pods-Markus-MarkusUITests/Pods-Markus-MarkusUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5779A6C0AFB7587C68C65A6F /* Pods_Markus_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markus_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6347AF4542AFBA37488B05FA /* Pods-MarkusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarkusTests.release.xcconfig"; path = "Target Support Files/Pods-MarkusTests/Pods-MarkusTests.release.xcconfig"; sourceTree = "<group>"; };
+		65508DD8BEC4215D6E9C50DD /* Pods-Markus WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-Markus WatchKit Extension/Pods-Markus WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		6BDC2A4EF709ECE97961DDE3 /* Pods_Markus_MarkusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markus_MarkusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8598A88B98DF26D06A079211 /* Pods_MarkusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarkusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99A8CB92F877B95230D837C6 /* Pods-Markus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus.debug.xcconfig"; path = "Target Support Files/Pods-Markus/Pods-Markus.debug.xcconfig"; sourceTree = "<group>"; };
+		AC666F9125E94F4F724290A9 /* Pods-Markus-MarkusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus-MarkusUITests.release.xcconfig"; path = "Target Support Files/Pods-Markus-MarkusUITests/Pods-Markus-MarkusUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C0CBE9D4BF0883C5B585F3DB /* Pods-Markus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus.release.xcconfig"; path = "Target Support Files/Pods-Markus/Pods-Markus.release.xcconfig"; sourceTree = "<group>"; };
+		C7A28F4C86E873EB0BC9AF02 /* Pods-MarkusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarkusTests.debug.xcconfig"; path = "Target Support Files/Pods-MarkusTests/Pods-MarkusTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D53C365B2734CF4B00B4D1F6 /* index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index.swift; sourceTree = "<group>"; };
+		D53C365E2734DFFE00B4D1F6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		D53C36602734E72800B4D1F6 /* Markus WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Markus WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		D53C36622734E72900B4D1F6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		D55E14F927321973002D6994 /* MemoFileNameHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoFileNameHelper.swift; sourceTree = "<group>"; };
+		D55E14FB27321997002D6994 /* MemoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModels.swift; sourceTree = "<group>"; };
+		D55E14FD273219B3002D6994 /* MemoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoStore.swift; sourceTree = "<group>"; };
+		D55E150027338B83002D6994 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
+		D5E46B2727267A1800DC4316 /* Markus WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Markus WatchKit App.entitlements"; sourceTree = "<group>"; };
 		D5FCB37127228BF600FABEFA /* Markus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markus WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FCB37B27228BF600FABEFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -96,13 +129,26 @@
 		D5FCB3A427228BF900FABEFA /* MarkusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarkusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FCB3A827228BF900FABEFA /* MarkusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkusUITests.swift; sourceTree = "<group>"; };
 		D5FCB3AA27228BF900FABEFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F629EC0B9B1B830C1D4BFB5C /* Pods-Markus WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-Markus WatchKit App/Pods-Markus WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		F9A564350C90AD94129230A3 /* Pods_Markus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB59DFDBE1DA116EE100CFD8 /* Pods-Markus WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-Markus WatchKit Extension/Pods-Markus WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		183148CD1A7144BDE5A8A74B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA3A384CC958FC9B175FD709 /* Pods_Markus_WatchKit_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5FCB38127228BF800FABEFA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D53C36632734E72900B4D1F6 /* HealthKit.framework in Frameworks */,
+				97C5982F15D3A5A502B9765B /* Pods_Markus_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEAEFFFD93777B81F9FF941C /* Pods_MarkusTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,20 +164,100 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FC78DF08BA8C15084A8C3E /* Pods_Markus_MarkusUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1F7D1B4CD3AE359C7AC242E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F95D1FFC86ADA16E54AF8EC /* Pods_Markus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8CF5AEC0D9D5C30A0F3A6133 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99A8CB92F877B95230D837C6 /* Pods-Markus.debug.xcconfig */,
+				C0CBE9D4BF0883C5B585F3DB /* Pods-Markus.release.xcconfig */,
+				1F860B235F9B3F5BC46086C9 /* Pods-Markus WatchKit App.debug.xcconfig */,
+				F629EC0B9B1B830C1D4BFB5C /* Pods-Markus WatchKit App.release.xcconfig */,
+				FB59DFDBE1DA116EE100CFD8 /* Pods-Markus WatchKit Extension.debug.xcconfig */,
+				65508DD8BEC4215D6E9C50DD /* Pods-Markus WatchKit Extension.release.xcconfig */,
+				55FEFE73ED72401CA18EFA85 /* Pods-Markus-MarkusUITests.debug.xcconfig */,
+				AC666F9125E94F4F724290A9 /* Pods-Markus-MarkusUITests.release.xcconfig */,
+				C7A28F4C86E873EB0BC9AF02 /* Pods-MarkusTests.debug.xcconfig */,
+				6347AF4542AFBA37488B05FA /* Pods-MarkusTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D53C365A2734CF3200B4D1F6 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				D53C365B2734CF4B00B4D1F6 /* index.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		D53C365D2734DFEB00B4D1F6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D53C365E2734DFFE00B4D1F6 /* Data.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D53C36612734E72900B4D1F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D53C36622734E72900B4D1F6 /* HealthKit.framework */,
+				F9A564350C90AD94129230A3 /* Pods_Markus.framework */,
+				5779A6C0AFB7587C68C65A6F /* Pods_Markus_WatchKit_App.framework */,
+				26BDCBF1A15D4A0C80E931A7 /* Pods_Markus_WatchKit_Extension.framework */,
+				6BDC2A4EF709ECE97961DDE3 /* Pods_Markus_MarkusUITests.framework */,
+				8598A88B98DF26D06A079211 /* Pods_MarkusTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D55E14F82732191A002D6994 /* MicRecording */ = {
+			isa = PBXGroup;
+			children = (
+				D55E14F927321973002D6994 /* MemoFileNameHelper.swift */,
+				D55E14FB27321997002D6994 /* MemoModels.swift */,
+				D55E14FD273219B3002D6994 /* MemoStore.swift */,
+			);
+			path = MicRecording;
+			sourceTree = "<group>";
+		};
+		D55E14FF27338B65002D6994 /* FoundationExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				D55E150027338B83002D6994 /* FileManagerExtension.swift */,
+			);
+			path = FoundationExtensions;
+			sourceTree = "<group>";
+		};
 		D5FCB36A27228BF500FABEFA = {
 			isa = PBXGroup;
 			children = (
+				D53C365D2734DFEB00B4D1F6 /* Data */,
+				D53C365A2734CF3200B4D1F6 /* Routing */,
+				D55E14FF27338B65002D6994 /* FoundationExtensions */,
+				D55E14F82732191A002D6994 /* MicRecording */,
 				D5FCB37927228BF600FABEFA /* Markus WatchKit App */,
 				D5FCB38827228BF800FABEFA /* Markus WatchKit Extension */,
 				D5FCB39C27228BF900FABEFA /* MarkusTests */,
 				D5FCB3A727228BF900FABEFA /* MarkusUITests */,
 				D5FCB37227228BF600FABEFA /* Products */,
+				D53C36612734E72900B4D1F6 /* Frameworks */,
+				8CF5AEC0D9D5C30A0F3A6133 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +276,7 @@
 		D5FCB37927228BF600FABEFA /* Markus WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				D5E46B2727267A1800DC4316 /* Markus WatchKit App.entitlements */,
 				D5FCB37A27228BF600FABEFA /* Interface.storyboard */,
 				D5FCB37D27228BF800FABEFA /* Assets.xcassets */,
 				D5FCB37F27228BF800FABEFA /* Info.plist */,
@@ -159,6 +287,7 @@
 		D5FCB38827228BF800FABEFA /* Markus WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D53C36602734E72800B4D1F6 /* Markus WatchKit Extension.entitlements */,
 				D5FCB38927228BF800FABEFA /* InterfaceController.swift */,
 				D5FCB38B27228BF800FABEFA /* ExtensionDelegate.swift */,
 				D5FCB38D27228BF800FABEFA /* NotificationController.swift */,
@@ -195,8 +324,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5FCB3B527228BF900FABEFA /* Build configuration list for PBXNativeTarget "Markus" */;
 			buildPhases = (
+				1E289784045959C540E7E77D /* [CP] Check Pods Manifest.lock */,
 				D5FCB36F27228BF500FABEFA /* Resources */,
 				D5FCB3B427228BF900FABEFA /* Embed Watch Content */,
+				E1F7D1B4CD3AE359C7AC242E /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,8 +343,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5FCB3B127228BF900FABEFA /* Build configuration list for PBXNativeTarget "Markus WatchKit App" */;
 			buildPhases = (
+				31C35AAB1BACAB9C4DC2A273 /* [CP] Check Pods Manifest.lock */,
 				D5FCB37327228BF600FABEFA /* Resources */,
 				D5FCB3B027228BF900FABEFA /* Embed App Extensions */,
+				183148CD1A7144BDE5A8A74B /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,9 +362,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5FCB3AD27228BF900FABEFA /* Build configuration list for PBXNativeTarget "Markus WatchKit Extension" */;
 			buildPhases = (
+				5D00782FA1A58299D44708D0 /* [CP] Check Pods Manifest.lock */,
 				D5FCB38027228BF800FABEFA /* Sources */,
 				D5FCB38127228BF800FABEFA /* Frameworks */,
 				D5FCB38227228BF800FABEFA /* Resources */,
+				EB4CABBE14F7440D773E4599 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,6 +381,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5FCB3B827228BF900FABEFA /* Build configuration list for PBXNativeTarget "MarkusTests" */;
 			buildPhases = (
+				BD2B6E5D269276F5548C5EC5 /* [CP] Check Pods Manifest.lock */,
 				D5FCB39527228BF900FABEFA /* Sources */,
 				D5FCB39627228BF900FABEFA /* Frameworks */,
 				D5FCB39727228BF900FABEFA /* Resources */,
@@ -264,6 +400,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5FCB3BB27228BF900FABEFA /* Build configuration list for PBXNativeTarget "MarkusUITests" */;
 			buildPhases = (
+				ED1560EDE7ACD2847BF33C8D /* [CP] Check Pods Manifest.lock */,
 				D5FCB3A027228BF900FABEFA /* Sources */,
 				D5FCB3A127228BF900FABEFA /* Frameworks */,
 				D5FCB3A227228BF900FABEFA /* Resources */,
@@ -369,14 +506,150 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E289784045959C540E7E77D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Markus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31C35AAB1BACAB9C4DC2A273 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Markus WatchKit App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D00782FA1A58299D44708D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Markus WatchKit Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD2B6E5D269276F5548C5EC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarkusTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB4CABBE14F7440D773E4599 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Markus WatchKit Extension/Pods-Markus WatchKit Extension-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Markus WatchKit Extension/Pods-Markus WatchKit Extension-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Markus WatchKit Extension/Pods-Markus WatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED1560EDE7ACD2847BF33C8D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Markus-MarkusUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D5FCB38027228BF800FABEFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D5FCB38E27228BF800FABEFA /* NotificationController.swift in Sources */,
+				D53C365F2734DFFE00B4D1F6 /* Data.swift in Sources */,
 				D5FCB39027228BF800FABEFA /* ComplicationController.swift in Sources */,
 				D5FCB38C27228BF800FABEFA /* ExtensionDelegate.swift in Sources */,
+				D55E14FC27321997002D6994 /* MemoModels.swift in Sources */,
+				D55E14FE273219B3002D6994 /* MemoStore.swift in Sources */,
+				D53C365C2734CF4B00B4D1F6 /* index.swift in Sources */,
+				D55E150127338B83002D6994 /* FileManagerExtension.swift in Sources */,
+				D55E14FA27321973002D6994 /* MemoFileNameHelper.swift in Sources */,
 				D5FCB38A27228BF800FABEFA /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,8 +823,10 @@
 		};
 		D5FCB3AE27228BF900FABEFA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB59DFDBE1DA116EE100CFD8 /* Pods-Markus WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Markus WatchKit Extension/Markus WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				INFOPLIST_FILE = "Markus WatchKit Extension/Info.plist";
@@ -572,8 +847,10 @@
 		};
 		D5FCB3AF27228BF900FABEFA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65508DD8BEC4215D6E9C50DD /* Pods-Markus WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Markus WatchKit Extension/Markus WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				INFOPLIST_FILE = "Markus WatchKit Extension/Info.plist";
@@ -594,10 +871,12 @@
 		};
 		D5FCB3B227228BF900FABEFA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F860B235F9B3F5BC46086C9 /* Pods-Markus WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Markus WatchKit App/Markus WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				IBSC_MODULE = Markus_WatchKit_Extension;
@@ -614,10 +893,12 @@
 		};
 		D5FCB3B327228BF900FABEFA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F629EC0B9B1B830C1D4BFB5C /* Pods-Markus WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Markus WatchKit App/Markus WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				IBSC_MODULE = Markus_WatchKit_Extension;
@@ -634,6 +915,7 @@
 		};
 		D5FCB3B627228BF900FABEFA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99A8CB92F877B95230D837C6 /* Pods-Markus.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -647,6 +929,7 @@
 		};
 		D5FCB3B727228BF900FABEFA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0CBE9D4BF0883C5B585F3DB /* Pods-Markus.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -660,6 +943,7 @@
 		};
 		D5FCB3B927228BF900FABEFA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7A28F4C86E873EB0BC9AF02 /* Pods-MarkusTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -683,6 +967,7 @@
 		};
 		D5FCB3BA27228BF900FABEFA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6347AF4542AFBA37488B05FA /* Pods-MarkusTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -706,6 +991,7 @@
 		};
 		D5FCB3BC27228BF900FABEFA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55FEFE73ED72401CA18EFA85 /* Pods-Markus-MarkusUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
@@ -727,6 +1013,7 @@
 		};
 		D5FCB3BD27228BF900FABEFA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC666F9125E94F4F724290A9 /* Pods-Markus-MarkusUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
