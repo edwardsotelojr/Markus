@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		D53C365C2734CF4B00B4D1F6 /* index.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C365B2734CF4B00B4D1F6 /* index.swift */; };
 		D53C365F2734DFFE00B4D1F6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C365E2734DFFE00B4D1F6 /* Data.swift */; };
 		D53C36632734E72900B4D1F6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D53C36622734E72900B4D1F6 /* HealthKit.framework */; };
+		D54592D3274307EA002C0C34 /* priority.wav in Resources */ = {isa = PBXBuildFile; fileRef = D54592D2274307EA002C0C34 /* priority.wav */; };
 		D55E14FA27321973002D6994 /* MemoFileNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E14F927321973002D6994 /* MemoFileNameHelper.swift */; };
 		D55E14FC27321997002D6994 /* MemoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E14FB27321997002D6994 /* MemoModels.swift */; };
 		D55E14FE273219B3002D6994 /* MemoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E14FD273219B3002D6994 /* MemoStore.swift */; };
@@ -105,6 +106,7 @@
 		D53C365E2734DFFE00B4D1F6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		D53C36602734E72800B4D1F6 /* Markus WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Markus WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D53C36622734E72900B4D1F6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		D54592D2274307EA002C0C34 /* priority.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = priority.wav; sourceTree = "<group>"; };
 		D55E14F927321973002D6994 /* MemoFileNameHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoFileNameHelper.swift; sourceTree = "<group>"; };
 		D55E14FB27321997002D6994 /* MemoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModels.swift; sourceTree = "<group>"; };
 		D55E14FD273219B3002D6994 /* MemoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoStore.swift; sourceTree = "<group>"; };
@@ -193,7 +195,6 @@
 				C7A28F4C86E873EB0BC9AF02 /* Pods-MarkusTests.debug.xcconfig */,
 				6347AF4542AFBA37488B05FA /* Pods-MarkusTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -287,6 +288,7 @@
 		D5FCB38827228BF800FABEFA /* Markus WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D54592D2274307EA002C0C34 /* priority.wav */,
 				D53C36602734E72800B4D1F6 /* Markus WatchKit Extension.entitlements */,
 				D5FCB38927228BF800FABEFA /* InterfaceController.swift */,
 				D5FCB38B27228BF800FABEFA /* ExtensionDelegate.swift */,
@@ -486,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D54592D3274307EA002C0C34 /* priority.wav in Resources */,
 				D5FCB39227228BF900FABEFA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
