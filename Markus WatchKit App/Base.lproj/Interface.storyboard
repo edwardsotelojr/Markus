@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="18122" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19455" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch44"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="18022"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19454"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
-        <scene sceneID="flC-mg-UNS">
-            <objects>
-                <controller contentMode="scaleAspectFill" animationDuration="2" id="7Qj-B7-nBQ">
-                    <items>
-                        <label alignment="center" verticalAlignment="center" text="Verfication Code" id="V4B-ps-tfm"/>
-                        <label alignment="center" verticalAlignment="center" text="1 0 1 5 8 3" textAlignment="center" baselineAdjustment="alignCenters" id="VTi-Fa-uzN">
-                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
-                        </label>
-                    </items>
-                    <color key="backgroundColor" red="0.1765114367" green="0.6259343624" blue="0.76989209650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="223" y="9"/>
-        </scene>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Markus_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <button width="1" alignment="left" hidden="YES" title="Record" id="7j7-2H-tUi">
-                            <connections>
-                                <action selector="startRecording" destination="AgC-eL-Hgc" id="qPL-FX-SeQ"/>
-                            </connections>
-                        </button>
+                        <imageView width="40" height="40" alignment="center" verticalAlignment="center" image="Markus" id="MCJ-VB-LI4"/>
                         <label width="1" widthAdjustment="7" alignment="center" verticalAlignment="center" text="Verification Code" textAlignment="center" id="uNo-7g-Pt5">
-                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
                         </label>
-                        <label alignment="center" verticalAlignment="center" text="0 3 0 2" id="4jV-hr-8QW"/>
+                        <label alignment="center" verticalAlignment="center" text="0 3 0 2" id="4jV-hr-8QW">
+                            <fontDescription key="font" type="system" weight="medium" pointSize="35"/>
+                        </label>
+                        <label height="20" alignment="center" verticalAlignment="center" hidden="YES" text="Getting Heart Rate..." textAlignment="center" id="4Ye-Ys-Ri2"/>
                         <button width="1" alignment="left" hidden="YES" title="Send Data" id="Mx8-ik-mQz"/>
                     </items>
                     <connections>
                         <outlet property="VerificationCode" destination="4jV-hr-8QW" id="2zN-yZ-W6j"/>
-                        <outlet property="startRecording" destination="7j7-2H-tUi" id="S2r-Wp-Msg"/>
+                        <outlet property="VerificationCodeLabel" destination="uNo-7g-Pt5" id="SOK-su-jC6"/>
+                        <outlet property="heartRate" destination="4Ye-Ys-Ri2" id="ddQ-nc-JCu"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="163" y="-192"/>
+        </scene>
+        <!--Recording-->
+        <scene sceneID="O3E-db-FF0">
+            <objects>
+                <controller title="Recording" id="3fa-5w-1pp" customClass="sendingData" customModule="Markus_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" verticalAlignment="bottom" text="Sending Data..." id="fWR-8V-A18">
+                            <fontDescription key="font" type="system" pointSize="19"/>
+                        </label>
+                        <imageView width="90" height="90" alignment="center" verticalAlignment="center" image="Markus" id="fPn-WL-urk"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="483" y="-175"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -77,4 +77,7 @@
             <point key="canvasLocation" x="468" y="345"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Markus" width="1996" height="1780"/>
+    </resources>
 </document>
