@@ -20,6 +20,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     var memos: [VoiceMemo] = []
     var verificationCode = ""
     let markusSerial = WKInterfaceDevice.current().identifierForVendor?.uuidString
+    var markusId = -1
     var status: Int = -1
     var meterTimer:Timer!
     var isAudioRecordingGranted: Bool!
@@ -117,7 +118,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                 audioRecorder = try AVAudioRecorder(url: getFileUrl(), settings: settings)
                 audioRecorder?.delegate = self
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.audioRecorder?.record(forDuration: 3.9)
+                    self.audioRecorder?.record(forDuration: 1.4)
                     let ddd = self.getDocumentsDirectory()
                     if(self.previousFilename.count > 0){
                         guard let data = try? Data(contentsOf: ddd.appendingPathComponent(self.previousFilename) ) else { return }
@@ -161,9 +162,9 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         doubleValue: Double(arc4random_uniform(80) + 100))
         let heartSample = HKQuantitySample(type: heartRateType,
             quantity: heartRateQuantity, start: NSDate() as Date, end: NSDate() as Date)
-        print(heartRateQuantity)
+        print("Heart Rate: ",heartRateQuantity)
         self.heartRate.setText(String(Int(heartRateQuantity.doubleValue(for: HKUnit(from: "count/min")))) + " BPM")
-        let parameters = ["heartRate": Int(heartRateQuantity.doubleValue(for: HKUnit(from: "count/min")))]
+        let parameters = ["id": 1, "heartRate": Int(heartRateQuantity.doubleValue(for: HKUnit(from: "count/min")))]
 
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/uploadMarkusData",
                    method: HTTPMethod.post, parameters: parameters).response { response in
@@ -174,18 +175,24 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     
     @objc func validateCodeRequest()
     {
-        print("parameters for validateCode:\(verificationCode), markusSerial: \(markusSerial!)")
+        print("\nparameters for /validateCode:  { validateCode:\(verificationCode), markusSerial: \(markusSerial!) }")
         let parameters = ["verification": verificationCode, "markusSerial": markusSerial]
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/validateCode",
                    method: HTTPMethod.post, parameters: parameters).response { response in
             let str = String(decoding: response.data!, as: UTF8.self)
             print("\n", str, "\n")
-            print("status: ", self.getStatus(response: str))
             self.status = self.getStatus(response: str)
-            if(self.status == 0){
-                self.timer?.invalidate()
-                self.timer = nil
+            if(self.status == 0){ //
+                //self.timer?.invalidate()
+                //self.timer = nil
+                self.markusId = self.getMarkusId(response: str)
+            }
+            else if(self.status == -1){ // error
+                
+            }
+            else if(self.status == 1){ // used code
                 self.userValid(); // user is valid
+                self.markusId = self.getMarkusId(response: str)
             }
         }
     }
@@ -195,8 +202,8 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         self.VerificationCode.setHidden(true);
         self.VerificationCodeLabel.setHidden(true);
         self.heartRate.setHidden(false);
-        self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(getHeartRate), userInfo: nil, repeats: true)
-        self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(setup_recorder), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(getHeartRate), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(setup_recorder), userInfo: nil, repeats: true)
     }
     
     func getStatus(response: String) -> Int{
@@ -206,7 +213,6 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         
         if let range: Range<String.Index> = response.range(of: "Status:") {
              index = response.distance(from: response.startIndex, to: range.lowerBound)
-            // range
             let start = response.index(response.startIndex, offsetBy: index+7)
             let end = response.index(response.endIndex, offsetBy: -(response.count-index-8))
             let range = start..<end
@@ -221,38 +227,55 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         }
         return status
     }
-
+    
+    func getMarkusId(response: String) -> Int {
+        var markusId = -1
+        var markusIdString = ""
+        var index = 0;
+        
+        if let range: Range<String.Index> = response.range(of: "MarkusId:") {
+             index = response.distance(from: response.startIndex, to: range.lowerBound)
+            let start = response.index(response.startIndex, offsetBy: index+9)
+            let end = response.endIndex
+            let range = start..<end
+            markusIdString = String(response[range].trimmingCharacters(in: .whitespacesAndNewlines))
+            if(markusIdString == "-1"){
+                markusId = -1 // user never validated
+            }
+            else{
+                markusId = Int(markusIdString)!
+            }
+        }
+        return markusId
+    }
+    
     override func awake(withContext context: Any?)
     {
         super.awake(withContext: context)
-        self.check_record_permission(); //
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(getHeartRate), userInfo: nil, repeats: true)
-            let parameters = ["MarkusSerial": markusSerial]
-            var code = ""
-            AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/requestCode",
-                method: HTTPMethod.post, parameters: parameters).response { response in
-                    let str = String(decoding: response.data!, as: UTF8.self)
-                    print(str)
-                    let start = String.Index(utf16Offset: 13, in: str)
-                    let end = String.Index(utf16Offset: str.count, in: str)
-                    print(String(str[start..<end]))
-                    code = String(str[start..<end])
-                    self.verificationCode = code
-                    let len = code.count-1
-                    var index = 1
-                    var iteration = 1
-                    let character = " " as Character
-                    while(iteration <= len){
-                        code.insert(character, at: str.index(str.startIndex, offsetBy: index))
-                        index = index + 2
-                        iteration = iteration+1
-                    }
-                    print(code)
-                    self.VerificationCode.setText(code)
-                    print(self.markusSerial!)
-                    self.validateCodeRequest();
-                self.timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.validateCodeRequest), userInfo: nil, repeats: true)
-            }
+        self.check_record_permission(); // audio recording permission
+        let parameters = ["MarkusSerial": markusSerial]
+        var code = ""
+        AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/requestCode",
+            method: HTTPMethod.post, parameters: parameters).response { response in
+                let str = String(decoding: response.data!, as: UTF8.self)
+                print("\n", str)
+                let start = String.Index(utf16Offset: 13, in: str)
+                let end = String.Index(utf16Offset: str.count, in: str)
+                code = String(str[start..<end])
+                self.verificationCode = code
+                let len = code.count-1
+                var index = 1
+                var iteration = 1
+                let character = " " as Character
+                while(iteration <= len){ // space out verification code for UI Label
+                    code.insert(character, at: str.index(str.startIndex, offsetBy: index))
+                    index = index + 2
+                    iteration = iteration+1
+                }
+            self.VerificationCode.setText(code) //UI Label
+            self.validateCodeRequest();
+            self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.validateCodeRequest), userInfo: nil, repeats: true)
+        }
     }
 }
 
