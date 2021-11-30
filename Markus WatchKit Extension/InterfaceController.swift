@@ -274,7 +274,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                 }
             self.VerificationCode.setText(code) //UI Label
             self.validateCodeRequest();
-            self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.validateCodeRequest), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.validateCodeRequest), userInfo: nil, repeats: true)
         }
     }
 }
