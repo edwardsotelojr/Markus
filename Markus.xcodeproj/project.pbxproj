@@ -12,13 +12,9 @@
 		97C5982F15D3A5A502B9765B /* Pods_Markus_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BDCBF1A15D4A0C80E931A7 /* Pods_Markus_WatchKit_Extension.framework */; };
 		AEAEFFFD93777B81F9FF941C /* Pods_MarkusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8598A88B98DF26D06A079211 /* Pods_MarkusTests.framework */; };
 		CA3A384CC958FC9B175FD709 /* Pods_Markus_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5779A6C0AFB7587C68C65A6F /* Pods_Markus_WatchKit_App.framework */; };
-		D53C365C2734CF4B00B4D1F6 /* index.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53C365B2734CF4B00B4D1F6 /* index.swift */; };
 		D53C36632734E72900B4D1F6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D53C36622734E72900B4D1F6 /* HealthKit.framework */; };
-		D54592D3274307EA002C0C34 /* priority.wav in Resources */ = {isa = PBXBuildFile; fileRef = D54592D2274307EA002C0C34 /* priority.wav */; };
-		D55E14FA27321973002D6994 /* MemoFileNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E14F927321973002D6994 /* MemoFileNameHelper.swift */; };
-		D55E14FC27321997002D6994 /* MemoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E14FB27321997002D6994 /* MemoModels.swift */; };
-		D55E14FE273219B3002D6994 /* MemoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E14FD273219B3002D6994 /* MemoStore.swift */; };
-		D55E150127338B83002D6994 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55E150027338B83002D6994 /* FileManagerExtension.swift */; };
+		D588C07427B5974E00BC3C57 /* Hotnigga 144p.wav in Resources */ = {isa = PBXBuildFile; fileRef = D588C07327B5974E00BC3C57 /* Hotnigga 144p.wav */; };
+		D5ADBF9227B4EF14004C9F60 /* trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ADBF9127B4EF14004C9F60 /* trash.swift */; };
 		D5FA752A274E032B00E3F1EA /* sendingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FA7529274E032B00E3F1EA /* sendingData.swift */; };
 		D5FCB37627228BF600FABEFA /* Markus WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D5FCB37C27228BF600FABEFA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5FCB37A27228BF600FABEFA /* Interface.storyboard */; };
@@ -102,14 +98,10 @@
 		AC666F9125E94F4F724290A9 /* Pods-Markus-MarkusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus-MarkusUITests.release.xcconfig"; path = "Target Support Files/Pods-Markus-MarkusUITests/Pods-Markus-MarkusUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C0CBE9D4BF0883C5B585F3DB /* Pods-Markus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus.release.xcconfig"; path = "Target Support Files/Pods-Markus/Pods-Markus.release.xcconfig"; sourceTree = "<group>"; };
 		C7A28F4C86E873EB0BC9AF02 /* Pods-MarkusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarkusTests.debug.xcconfig"; path = "Target Support Files/Pods-MarkusTests/Pods-MarkusTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D53C365B2734CF4B00B4D1F6 /* index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index.swift; sourceTree = "<group>"; };
 		D53C36602734E72800B4D1F6 /* Markus WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Markus WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D53C36622734E72900B4D1F6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
-		D54592D2274307EA002C0C34 /* priority.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = priority.wav; sourceTree = "<group>"; };
-		D55E14F927321973002D6994 /* MemoFileNameHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoFileNameHelper.swift; sourceTree = "<group>"; };
-		D55E14FB27321997002D6994 /* MemoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModels.swift; sourceTree = "<group>"; };
-		D55E14FD273219B3002D6994 /* MemoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoStore.swift; sourceTree = "<group>"; };
-		D55E150027338B83002D6994 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
+		D588C07327B5974E00BC3C57 /* Hotnigga 144p.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Hotnigga 144p.wav"; sourceTree = "<group>"; };
+		D5ADBF9127B4EF14004C9F60 /* trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trash.swift; sourceTree = "<group>"; };
 		D5E46B2727267A1800DC4316 /* Markus WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Markus WatchKit App.entitlements"; sourceTree = "<group>"; };
 		D5FA7529274E032B00E3F1EA /* sendingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendingData.swift; sourceTree = "<group>"; };
 		D5FCB37127228BF600FABEFA /* Markus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,14 +190,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D53C365A2734CF3200B4D1F6 /* Routing */ = {
-			isa = PBXGroup;
-			children = (
-				D53C365B2734CF4B00B4D1F6 /* index.swift */,
-			);
-			path = Routing;
-			sourceTree = "<group>";
-		};
 		D53C36612734E72900B4D1F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,30 +203,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D55E14F82732191A002D6994 /* MicRecording */ = {
-			isa = PBXGroup;
-			children = (
-				D55E14F927321973002D6994 /* MemoFileNameHelper.swift */,
-				D55E14FB27321997002D6994 /* MemoModels.swift */,
-				D55E14FD273219B3002D6994 /* MemoStore.swift */,
-			);
-			path = MicRecording;
-			sourceTree = "<group>";
-		};
-		D55E14FF27338B65002D6994 /* FoundationExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				D55E150027338B83002D6994 /* FileManagerExtension.swift */,
-			);
-			path = FoundationExtensions;
-			sourceTree = "<group>";
-		};
 		D5FCB36A27228BF500FABEFA = {
 			isa = PBXGroup;
 			children = (
-				D53C365A2734CF3200B4D1F6 /* Routing */,
-				D55E14FF27338B65002D6994 /* FoundationExtensions */,
-				D55E14F82732191A002D6994 /* MicRecording */,
 				D5FCB37927228BF600FABEFA /* Markus WatchKit App */,
 				D5FCB38827228BF800FABEFA /* Markus WatchKit Extension */,
 				D5FCB39C27228BF900FABEFA /* MarkusTests */,
@@ -279,9 +242,10 @@
 		D5FCB38827228BF800FABEFA /* Markus WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D54592D2274307EA002C0C34 /* priority.wav */,
+				D588C07327B5974E00BC3C57 /* Hotnigga 144p.wav */,
 				D53C36602734E72800B4D1F6 /* Markus WatchKit Extension.entitlements */,
 				D5FCB38927228BF800FABEFA /* InterfaceController.swift */,
+				D5ADBF9127B4EF14004C9F60 /* trash.swift */,
 				D5FCB38B27228BF800FABEFA /* ExtensionDelegate.swift */,
 				D5FCB38D27228BF800FABEFA /* NotificationController.swift */,
 				D5FCB38F27228BF800FABEFA /* ComplicationController.swift */,
@@ -480,8 +444,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D54592D3274307EA002C0C34 /* priority.wav in Resources */,
 				D5FCB39227228BF900FABEFA /* Assets.xcassets in Resources */,
+				D588C07427B5974E00BC3C57 /* Hotnigga 144p.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,15 +600,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5ADBF9227B4EF14004C9F60 /* trash.swift in Sources */,
 				D5FCB38E27228BF800FABEFA /* NotificationController.swift in Sources */,
 				D5FCB39027228BF800FABEFA /* ComplicationController.swift in Sources */,
 				D5FCB38C27228BF800FABEFA /* ExtensionDelegate.swift in Sources */,
-				D55E14FC27321997002D6994 /* MemoModels.swift in Sources */,
 				D5FA752A274E032B00E3F1EA /* sendingData.swift in Sources */,
-				D55E14FE273219B3002D6994 /* MemoStore.swift in Sources */,
-				D53C365C2734CF4B00B4D1F6 /* index.swift in Sources */,
-				D55E150127338B83002D6994 /* FileManagerExtension.swift in Sources */,
-				D55E14FA27321973002D6994 /* MemoFileNameHelper.swift in Sources */,
 				D5FCB38A27228BF800FABEFA /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

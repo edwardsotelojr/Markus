@@ -13,10 +13,11 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Markus_WatchKit_App" customModuleProvider="target">
                     <items>
                         <imageView width="40" height="40" alignment="center" verticalAlignment="center" image="Markus" id="MCJ-VB-LI4"/>
+                        <imageView alignment="left" hidden="YES" image="commandCode1" id="mVq-Mh-PXG"/>
                         <label width="1" widthAdjustment="7" alignment="center" verticalAlignment="center" text="Verification Code" textAlignment="center" id="uNo-7g-Pt5">
                             <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
                         </label>
-                        <label alignment="center" verticalAlignment="center" text="0 3 0 2" id="4jV-hr-8QW">
+                        <label alignment="center" verticalAlignment="center" id="4jV-hr-8QW">
                             <fontDescription key="font" type="system" weight="medium" pointSize="35"/>
                         </label>
                         <label height="20" alignment="center" verticalAlignment="center" hidden="YES" text="Getting Heart Rate..." textAlignment="center" id="4Ye-Ys-Ri2"/>
@@ -25,11 +26,13 @@
                     <connections>
                         <outlet property="VerificationCode" destination="4jV-hr-8QW" id="2zN-yZ-W6j"/>
                         <outlet property="VerificationCodeLabel" destination="uNo-7g-Pt5" id="SOK-su-jC6"/>
+                        <outlet property="commandCode1" destination="mVq-Mh-PXG" id="teh-as-8QY"/>
                         <outlet property="heartRate" destination="4Ye-Ys-Ri2" id="ddQ-nc-JCu"/>
+                        <outlet property="markusLogo" destination="MCJ-VB-LI4" id="Dit-oR-CdE"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="163" y="-192"/>
+            <point key="canvasLocation" x="162.60869565217391" y="-192.00892857142858"/>
         </scene>
         <!--Recording-->
         <scene sceneID="O3E-db-FF0">
@@ -43,7 +46,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="483" y="-175"/>
+            <point key="canvasLocation" x="361" y="-192"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -79,5 +82,6 @@
     </scenes>
     <resources>
         <image name="Markus" width="1996" height="1780"/>
+        <image name="commandCode1" width="314" height="326"/>
     </resources>
 </document>

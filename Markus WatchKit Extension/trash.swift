@@ -12,11 +12,9 @@ import SwiftyJSON
 import HealthKit
 import CoreLocation
 import AVFAudio
-import AVFoundation
+import UIKit
 
-class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate {
-    @IBOutlet weak var markusLogo: WKInterfaceImage!
-    @IBOutlet weak var commandCode1: WKInterfaceImage!
+class trash: WKInterfaceController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     @IBOutlet weak var VerificationCodeLabel: WKInterfaceLabel!
     @IBOutlet weak var VerificationCode: WKInterfaceLabel!
@@ -101,6 +99,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     
     @objc func setup_recorder() // audio recorder prepared to record
     {
+        print("here is setup_recorder")
         if isAudioRecordingGranted
         {
             do
@@ -113,34 +112,49 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                     AVNumberOfChannelsKey: 2,
                     AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue
                 ]
-                audioRecorder = try AVAudioRecorder(url: getFileUrl(), settings: settings)
                 audioRecorder?.delegate = self
-                self.audioRecorder?.record(forDuration: 1.5)
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+                let fileURL = getFileUrl()
+                audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
+                self.audioRecorder?.record(forDuration: 4.5)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+                    if(self.audioRecorder?.isRecording == true){
+                        print("still recording")
+                    }else{
+                        print("done recording")
+                    }
                     let ddd = self.getDocumentsDirectory()
                     if(self.previousFilename.count > 0){
-                        guard let data = try? Data(contentsOf: ddd.appendingPathComponent(self.previousFilename) ) else { return }
-                        self.audioRecorder?.stop()
+                        guard let data = try? Data(contentsOf: ddd.appendingPathComponent(self.previousFilename) ) else { print("returning"); return }
+                        //self.audioRecorder?.stop()
+                       // self.audioRecorder.
                         self.audioRecorder = nil
+                        
                         AF.upload(multipartFormData: { MultipartFormData in
                             MultipartFormData.append(data, withName: "soundFile" , fileName: self.previousFilename, mimeType: "audio/wav")
+                            // for(key,value) in uploadDict {
+                            //   MultipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+                            //}
                         }, to: "http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/uploadSoundFile?id=4", method: .post)
                             .responseString { response in
+                                print("Success: \(response.result)")
+                                           print("Response String: \(response.result)")
+
                                 print("uploadSoundFile: ", response)
+                                print("filenameCount: ", self.filenameCount)
                                 let str = String(decoding: response.data!, as: UTF8.self)
-                                print("filename: ", self.previousFilename)
+
                                 if((self.getCommandCode(response: str)) == 1){
-                                    print("commandcode is 1")
-                                    //self.meltdown()
+                                    print("commandcode is 1\n")
+                                    self.previousFilename = self.filename
+                                    self.filenameCount = self.filenameCount + 1
+                                    self.setup_recorder()
                                 }
-                                self.setup_recorder()
-                                self.sendData()
+                                else{
+                                    print("commandcode is 0\n")
+                                }
                         }
                     }
                 }
-                self.previousFilename = self.filename
-                self.filenameCount = self.filenameCount + 1
             }
             catch let error {
                 print("error: ", error)
@@ -152,39 +166,26 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         }
     }
 
-    var displayingRed = false
-    func meltdown() -> Void {
-        self.commandCode1.setHidden(false)
-        self.heartRate.setHidden(true);
-        self.markusLogo.setHidden(true)
-        self.playSound()
-        self.displayingRed = true
-        if(!displayingRed){
-            self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.toggleOffMeltdown), userInfo: nil, repeats: false)
-        }
-        else {
-            self.timer?.invalidate()
-            self.timer = nil
-            self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.toggleOffMeltdown), userInfo: nil, repeats: false)
-        }
-    }
-    @objc func toggleOffMeltdown() -> Void {
-            self.commandCode1.setHidden(true)
-            self.heartRate.setHidden(false);
-            self.markusLogo.setHidden(false)
-    }
-    
-    @objc func getHeartRate() -> Int
+    @objc func getHeartRate()
     {
      // 1. Create a heart rate BPM Sample
-        let heartRateType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
+        //let heartRateType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
         let heartRateQuantity = HKQuantity(unit: HKUnit(from: "count/min"),
         doubleValue: Double(arc4random_uniform(80) + 100))
-        let heartSample = HKQuantitySample(type: heartRateType,
-            quantity: heartRateQuantity, start: NSDate() as Date, end: NSDate() as Date)
+        //let heartSample = HKQuantitySample(type: heartRateType,
+        //    quantity: heartRateQuantity, start: NSDate() as Date, end: NSDate() as Date)
         self.heartRate.setText(String(Int(heartRateQuantity.doubleValue(for: HKUnit(from: "count/min")))) + " BPM")
-       
-        return Int(heartRateQuantity.doubleValue(for: HKUnit(from: "count/min")))
+        let  parameters: [String: Any] =  [ "id": 1,
+                                    "lat": String(describing: self.lat),
+                                    "lon": String(describing: self.long),
+            "heartRate": Int(heartRateQuantity.doubleValue(for: HKUnit(from: "count/min")))
+        ]
+        
+        AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/uploadMarkusData",
+                   method: HTTPMethod.post, parameters: parameters).response { response in
+            let str = String(decoding: response.data!, as: UTF8.self)
+            print("reponse of uploadMarkusData: ", str)
+        }
    }
     
     @objc func validateCodeRequest()
@@ -197,14 +198,17 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
             print("\n", str, "\n")
             self.status = self.getStatus(response: str)
             if(self.status == 0){ //
-                //self.timer?.invalidate()
-                //self.timer = nil
                 self.markusId = self.getMarkusId(response: str)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                    self.validateCodeRequest()
+                    
+                }
             }
             else if(self.status == -1){ // error
                 
             }
             else if(self.status == 1){ // used code
+                print("status = 1")
                 self.timer?.invalidate()
                 self.timer = nil
                 self.userValid(); // user is valid
@@ -213,28 +217,12 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         }
     }
     
-    func playSound() -> Void {
-        let soundPath = Bundle.main.path(forResource: "Hotnigga 144p", ofType: "wav")
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath!))
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2
-            ) {
-
-                self.audioPlayer?.play()
-            }
-        }
-        catch{
-            print("error: ", error)
-        }
-    }
-    
     func userValid() -> Void
     {
-        WKInterfaceDevice.current().play(.notification)
-
         self.VerificationCode.setHidden(true);
         self.VerificationCodeLabel.setHidden(true);
         self.heartRate.setHidden(false);
+        self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(getHeartRate), userInfo: nil, repeats: true)
         //self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(setup_recorder), userInfo: nil, repeats: true)
         self.setup_recorder();
     }
@@ -291,39 +279,22 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
             print("long: ", self.long)
             }
         }
-    
-    func sendData() {
-        let heartRate = getHeartRate()
-        let  pa: [String: Any] =  [
-            "id": 1,
-            "lat": String(describing: self.lat),
-            "lon": String(describing: self.long),
-            "heartRate": heartRate,
-        ]
-        AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/uploadMarkusData",
-                   method: HTTPMethod.post, parameters: pa).response { response in
-            let str = String(decoding: response.data!, as: UTF8.self)
-            print("reponse of uploadMarkusData: ", str)
-        }
-    }
-
     override func awake(withContext context: Any?)
     {
-        
         super.awake(withContext: context)
-        self.VerificationCode.setText("getting code") //UI Label
-
-        locationManager.requestAlwaysAuthorization()
+       /* locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
                    locationManager.delegate = self
                    locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
                    locationManager.startUpdatingLocation()
                }
+        */
         self.check_record_permission(); // audio recording permission
         let parameters = ["MarkusSerial": markusSerial]
         var code = ""
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/requestCode",
             method: HTTPMethod.post, parameters: parameters).response { response in
+            print(response)
                 let str = String(decoding: response.data!, as: UTF8.self)
                 print("\n", str)
                 let start = String.Index(utf16Offset: 13, in: str)
@@ -339,40 +310,9 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                     index = index + 2
                     iteration = iteration+1
                 }
-            print(code)
             self.VerificationCode.setText(code) //UI Label
-            //self.validateCodeRequest();
-            self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.validateCodeRequest), userInfo: nil, repeats: true)
+            //self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.validateCodeRequest), userInfo: nil, repeats: true)
+            self.validateCodeRequest()
         }
     }
 }
-
-/*
- private func processRecordedAudio(at url: URL) {
-     let voiceMemo = VoiceMemo(filename: url.lastPathComponent, date: Date())
-     print("filename: \(url.lastPathComponent)")
-   MemoStore.shared.add(memo: voiceMemo)
-   MemoStore.shared.save()
- }
- func fetchHealthData() -> Void {
-     let healthStore = HKHealthStore()
-     if HKHealthStore.isHealthDataAvailable() {
-             //rest of the code will be here
-             let readData = Set([
-                 HKObjectType.quantityType(forIdentifier: .heartRate)!
-             ])
-             healthStore.requestAuthorization(toShare: [], read: readData) { (success, error) in
-                 if success {
-                 //do the actual data calling here
-                     print(readData)
-                 } else {
-                     print("Authorization failed")
-                 }
-             }
-     }
- }
- func memoStore(store: MemoStore, didUpdateMemos memos: [VoiceMemo]) {
-   self.memos = memos
-   //reloadInterface()
- }
- */
