@@ -8,7 +8,6 @@
 import WatchKit
 import Foundation
 import Alamofire
-import SwiftyJSON
 import HealthKit
 import CoreLocation
 import AVFAudio
@@ -24,6 +23,10 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     var currentLocation = CLLocation()
     var lat:Double = 0.0
     var long:Double = 0.0
+    var pre:Double = 0.0
+    var alt:Double = 0.0
+    var hum:Double = 0.0
+    var temp:Double = 0.0
     var verificationCode = ""
     let markusSerial = WKInterfaceDevice.current().identifierForVendor?.uuidString
     var markusId = -1
@@ -127,12 +130,15 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                             MultipartFormData.append(data, withName: "soundFile" , fileName: self.previousFilename, mimeType: "audio/wav")
                         }, to: "http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/uploadSoundFile?id=4", method: .post)
                             .responseString { response in
+                                if(response.data == nil){
+                                    return
+                                }
                                 print("uploadSoundFile: ", response)
                                 let str = String(decoding: response.data!, as: UTF8.self)
                                 print("filename: ", self.previousFilename)
-                                if((self.getCommandCode(response: str)) == 1){
+                                if((self.getCommandCode(response: str)) == 0){ // CHANGE BACK TO 1
                                     print("commandcode is 1")
-                                    //self.meltdown()
+                                    self.meltdown()
                                 }
                                 self.setup_recorder()
                                 self.sendData()
@@ -174,6 +180,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
             self.markusLogo.setHidden(false)
     }
     
+    
     @objc func getHeartRate() -> Int
     {
      // 1. Create a heart rate BPM Sample
@@ -193,6 +200,9 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         let parameters = ["verification": verificationCode, "markusSerial": markusSerial]
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/validateCode",
                    method: HTTPMethod.post, parameters: parameters).response { response in
+            if(response.data == nil){
+                return
+            }
             let str = String(decoding: response.data!, as: UTF8.self)
             print("\n", str, "\n")
             self.status = self.getStatus(response: str)
@@ -214,10 +224,12 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     }
     
     func playSound() -> Void {
-        let soundPath = Bundle.main.path(forResource: "Hotnigga 144p", ofType: "wav")
+        
+            WKInterfaceDevice.current().play(.notification)
+        /*let soundPath = Bundle.main.path(forResource: "Hotnigga 144p", ofType: "wav")
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath!))
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1
             ) {
 
                 self.audioPlayer?.play()
@@ -225,13 +237,11 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         }
         catch{
             print("error: ", error)
-        }
+        }*/
     }
     
     func userValid() -> Void
     {
-        WKInterfaceDevice.current().play(.notification)
-
         self.VerificationCode.setHidden(true);
         self.VerificationCodeLabel.setHidden(true);
         self.heartRate.setHidden(false);
@@ -294,6 +304,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     
     func sendData() {
         let heartRate = getHeartRate()
+        print("heartRate: ", heartRate)
         let  pa: [String: Any] =  [
             "id": 1,
             "lat": String(describing: self.lat),
@@ -302,29 +313,28 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         ]
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/uploadMarkusData",
                    method: HTTPMethod.post, parameters: pa).response { response in
+            if(response.data == nil){
+                return
+            }
             let str = String(decoding: response.data!, as: UTF8.self)
             print("reponse of uploadMarkusData: ", str)
         }
     }
-
-    override func awake(withContext context: Any?)
-    {
-        
-        super.awake(withContext: context)
-        self.VerificationCode.setText("getting code") //UI Label
-
-        locationManager.requestAlwaysAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-                   locationManager.delegate = self
-                   locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
-                   locationManager.startUpdatingLocation()
-               }
-        self.check_record_permission(); // audio recording permission
+    
+    func requestCode() -> Void{
         let parameters = ["MarkusSerial": markusSerial]
         var code = ""
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/requestCode",
             method: HTTPMethod.post, parameters: parameters).response { response in
+                /*if(response.data == nil){
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    print("error on request Code")
+                    self.requestCode()
+                    return
+                    }
+                }*/
                 let str = String(decoding: response.data!, as: UTF8.self)
+           
                 print("\n", str)
                 let start = String.Index(utf16Offset: 13, in: str)
                 let end = String.Index(utf16Offset: str.count, in: str)
@@ -344,6 +354,23 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
             //self.validateCodeRequest();
             self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.validateCodeRequest), userInfo: nil, repeats: true)
         }
+
+    }
+
+    override func awake(withContext context: Any?)
+    {
+        
+        super.awake(withContext: context)
+        self.VerificationCode.setText("") //UI Label
+
+        locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+                   locationManager.delegate = self
+                   locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
+                   locationManager.startUpdatingLocation()
+               }
+        self.check_record_permission(); // audio recording permission
+        self.requestCode()
     }
 }
 

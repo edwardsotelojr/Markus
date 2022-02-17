@@ -13,9 +13,6 @@
 		AEAEFFFD93777B81F9FF941C /* Pods_MarkusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8598A88B98DF26D06A079211 /* Pods_MarkusTests.framework */; };
 		CA3A384CC958FC9B175FD709 /* Pods_Markus_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5779A6C0AFB7587C68C65A6F /* Pods_Markus_WatchKit_App.framework */; };
 		D53C36632734E72900B4D1F6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D53C36622734E72900B4D1F6 /* HealthKit.framework */; };
-		D588C07427B5974E00BC3C57 /* Hotnigga 144p.wav in Resources */ = {isa = PBXBuildFile; fileRef = D588C07327B5974E00BC3C57 /* Hotnigga 144p.wav */; };
-		D5ADBF9227B4EF14004C9F60 /* trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ADBF9127B4EF14004C9F60 /* trash.swift */; };
-		D5FA752A274E032B00E3F1EA /* sendingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FA7529274E032B00E3F1EA /* sendingData.swift */; };
 		D5FCB37627228BF600FABEFA /* Markus WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D5FCB37C27228BF600FABEFA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5FCB37A27228BF600FABEFA /* Interface.storyboard */; };
 		D5FCB37E27228BF800FABEFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5FCB37D27228BF800FABEFA /* Assets.xcassets */; };
@@ -100,10 +97,7 @@
 		C7A28F4C86E873EB0BC9AF02 /* Pods-MarkusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarkusTests.debug.xcconfig"; path = "Target Support Files/Pods-MarkusTests/Pods-MarkusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D53C36602734E72800B4D1F6 /* Markus WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Markus WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D53C36622734E72900B4D1F6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
-		D588C07327B5974E00BC3C57 /* Hotnigga 144p.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Hotnigga 144p.wav"; sourceTree = "<group>"; };
-		D5ADBF9127B4EF14004C9F60 /* trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trash.swift; sourceTree = "<group>"; };
 		D5E46B2727267A1800DC4316 /* Markus WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Markus WatchKit App.entitlements"; sourceTree = "<group>"; };
-		D5FA7529274E032B00E3F1EA /* sendingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendingData.swift; sourceTree = "<group>"; };
 		D5FCB37127228BF600FABEFA /* Markus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markus WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FCB37B27228BF600FABEFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -242,17 +236,14 @@
 		D5FCB38827228BF800FABEFA /* Markus WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D588C07327B5974E00BC3C57 /* Hotnigga 144p.wav */,
 				D53C36602734E72800B4D1F6 /* Markus WatchKit Extension.entitlements */,
 				D5FCB38927228BF800FABEFA /* InterfaceController.swift */,
-				D5ADBF9127B4EF14004C9F60 /* trash.swift */,
 				D5FCB38B27228BF800FABEFA /* ExtensionDelegate.swift */,
 				D5FCB38D27228BF800FABEFA /* NotificationController.swift */,
 				D5FCB38F27228BF800FABEFA /* ComplicationController.swift */,
 				D5FCB39127228BF900FABEFA /* Assets.xcassets */,
 				D5FCB39327228BF900FABEFA /* Info.plist */,
 				D5FCB39427228BF900FABEFA /* PushNotificationPayload.apns */,
-				D5FA7529274E032B00E3F1EA /* sendingData.swift */,
 			);
 			path = "Markus WatchKit Extension";
 			sourceTree = "<group>";
@@ -445,7 +436,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5FCB39227228BF900FABEFA /* Assets.xcassets in Resources */,
-				D588C07427B5974E00BC3C57 /* Hotnigga 144p.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,11 +590,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5ADBF9227B4EF14004C9F60 /* trash.swift in Sources */,
 				D5FCB38E27228BF800FABEFA /* NotificationController.swift in Sources */,
 				D5FCB39027228BF800FABEFA /* ComplicationController.swift in Sources */,
 				D5FCB38C27228BF800FABEFA /* ExtensionDelegate.swift in Sources */,
-				D5FA752A274E032B00E3F1EA /* sendingData.swift in Sources */,
 				D5FCB38A27228BF800FABEFA /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,6 +771,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "Markus WatchKit Extension/Markus WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				INFOPLIST_FILE = "Markus WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -807,6 +796,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "Markus WatchKit Extension/Markus WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				INFOPLIST_FILE = "Markus WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -833,6 +823,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Markus WatchKit App/Markus WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				IBSC_MODULE = Markus_WatchKit_Extension;
 				INFOPLIST_FILE = "Markus WatchKit App/Info.plist";
@@ -855,6 +846,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Markus WatchKit App/Markus WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				IBSC_MODULE = Markus_WatchKit_Extension;
 				INFOPLIST_FILE = "Markus WatchKit App/Info.plist";
@@ -873,7 +865,7 @@
 			baseConfigurationReference = 99A8CB92F877B95230D837C6 /* Pods-Markus.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = easjr.Markus;
@@ -887,7 +879,7 @@
 			baseConfigurationReference = C0CBE9D4BF0883C5B585F3DB /* Pods-Markus.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = ZX2464TT2X;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = easjr.Markus;

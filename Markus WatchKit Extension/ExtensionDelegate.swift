@@ -11,7 +11,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
-        print("here in applicationDidFinishLaunching")
     }
 
     func applicationDidBecomeActive() {
