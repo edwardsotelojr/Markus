@@ -16,6 +16,8 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Markus AI requires microphone access to listen for loud noises around the user that can signal danger.</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 </dict>

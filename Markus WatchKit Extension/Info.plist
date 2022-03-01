@@ -40,7 +40,7 @@
 		<string>com.apple.watchkit</string>
 	</dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string>for Markus AI</string>
+	<string>Markus AI requires health sensor data to monitor irregular changes.</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>to monitor irregular changes in heart rate</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -48,12 +48,18 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>for emergency cases</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>listening for loud noises around the user that can signal danger</string>
+	<string>Markus AI requires microphone access to listen for loud noises around the user that can signal danger.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Markus AI requires motion sensor data to monitor behavior.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
 		<string>location</string>
 		<string>remote-notification</string>
+	</array>
+	<key>WKBackgroundModes</key>
+	<array>
+		<string>physical-therapy</string>
 	</array>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
