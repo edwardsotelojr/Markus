@@ -17,7 +17,6 @@ import UIKit
 import UserNotifications
 
 class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
-    
     @IBOutlet weak var markusLogo: WKInterfaceImage!
     @IBOutlet weak var commandCode1: WKInterfaceImage!
     let locationManager = CLLocationManager()
@@ -31,6 +30,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     var alt:Double = 0.0
     var hum:Double = 0.0
     var temp:Double = 0.0
+    var heartRate = 0.0
     var verificationCode = ""
     let markusSerial = WKInterfaceDevice.current().identifierForVendor?.uuidString
     var markusId = -1
@@ -41,32 +41,22 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     var filename = ""
     var previousFilename = ""
     var filenameCount = 0
-    var record = false
+    var recording = false
     var audioRecorder: AVAudioRecorder?
     var audioPlayer:AVAudioPlayer?
     private let session = AVAudioSession.sharedInstance()
     var timer: Timer?
     var displayingRed = false
-    private let healthStore = HKHealthStore()
     var relativeAltitude: NSNumber = 0
     var altitude = 0
     let altimeter = CMAltimeter()
+    private let workoutManager = WorkoutManager()
 
-    
-       func update(d: CMAltitudeData?, e: Error?){
-           print("altitude \(altitude)")
-           print("CMAltimeter \(altimeter)")
-           print("relative Altitude \(relativeAltitude))")
-       }
-    
-    override func awake(withContext context: Any?)
-    {
-        super.awake(withContext: context)
-        if #available(watchOSApplicationExtension 8.0, *) {
-            print(CMAltimeter.isAbsoluteAltitudeAvailable())
-        } else {
-            // Fallback on earlier versions
-        }
+
+    override func willActivate() {
+        super.willActivate()
+            // Configure workout manager.
+        workoutManager.delegate = self
         if CMAltimeter.isRelativeAltitudeAvailable() {
                    switch CMAltimeter.authorizationStatus() {
                     case .notDetermined: // Handle state before user prompt
@@ -82,45 +72,40 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                     fatalError("Unknown Authorization Status")
                     }
                    self.altimeter.startRelativeAltitudeUpdates(to: OperationQueue.main) {(data,error) in DispatchQueue.main.async {
-                       print("\(self.altitude)")
-                       print("\(self.relativeAltitude)")
+                       print("altitude: \(data?.relativeAltitude)")
+                       print("")
                    }
                }
            }
         else{
             print("false")
         }
+    }
+    
+    override func awake(withContext context: Any?)
+    {
+        super.awake(withContext: context)
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            
             if let error = error {
                 // Handle the error here.
             }
-            
             // Enable or disable features based on the authorization.
         }
         
         self.VerificationCode.setText("") //UI Label
         self.check_recording_permission(); // audio recording permission
-        let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
-        let readTypes = Set([heartRateType])
-        healthStore.requestAuthorization(toShare: nil, read: readTypes) { success, error in
-                   
-                   if let error = error {
-                       print(error)
-                   }
-               }
-       // locationManager.requestAlwaysAuthorization()
-        
+        locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
                    locationManager.delegate = self
                    locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
                    locationManager.startUpdatingLocation()
+                    
+            print("herejhjk")
                }
         self.requestCode()
-     
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             self.lat = location.coordinate.latitude
@@ -138,7 +123,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
             if granted {
                 print("granted")
                 self.isAudioRecordingGranted = true
-                self.record = true
+                self.recording = true
             } else{
                 print("not granted")
                 self.isAudioRecordingGranted = false
@@ -235,11 +220,9 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         return status
     }
     
-    
-    
     @objc func record() // audio recorder prepared to record
     {
-        if isAudioRecordingGranted
+        if isAudioRecordingGranted && recording
         {
             do
             {
@@ -321,6 +304,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         self.playSound()
         self.commandCode1.setHidden(false)
         self.listening.setHidden(true);
+        self.stopMarkusButton.setHidden(true)
         self.markusLogo.setHidden(true)
         self.displayingRed = true
         if(!displayingRed){
@@ -336,49 +320,41 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     @objc func toggleOffMeltdown() -> Void {
             self.commandCode1.setHidden(true)
             self.listening.setHidden(false);
+        self.stopMarkusButton.setHidden(false)
             self.markusLogo.setHidden(false)
     }
     
-    @objc func getHeartRate() -> Int
-    {
-        
-        let heartRateType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
-        let heartRateQuantity = HKUnit(from: "count/min")
-       
-        let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
-        // 2
-        let updateHandler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Void = {
-            query, samples, deletedObjects, queryAnchor, error in
-            
-            guard let samples = samples as? [HKQuantitySample] else {
-                       return
-                   }
-         /*   for sample in samples {
-                if sample.quantityType == HKQuantityType {
-                    print(sample.quantity.doubleValue(for: heartRateQuantity))
-                   }
-                   
-                   //self.value = Int(lastHeartRate)
-               }
-           }*/
-    }
-
-        //let heartRateQuantity = HKQuantity(unit: HKUnit(from: "count/min"),
-        //doubleValue: Double(arc4random_uniform(80) + 100))
-        //let heartSample = HKQuantitySample(type: heartRateType,
-          //  quantity: heartRateQuantity, start: NSDate() as Date, end: NSDate() as Date)
-        return /*Int(heartRateType.doubleValue(for: heartRateQuantity))*/1
-
-        //return Int(heartRateQuantity.doubleValue(for: HKUnit(from: "count/min")))
-   }
+      let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
+      let heartRateUnit = HKUnit(from: "count/min")
+      var heartRateQuery: HKQuery?
     
+    @objc func getHeartRate() -> Void
+    {
+    
+       }
+    
+    @IBOutlet weak var stopMarkusButton: WKInterfaceButton!
     
     @IBAction func stopMarkus() {
+        if(!recording){
+            recording = true
+            self.listening.setHidden(false);
+            stopMarkusButton.setTitle("Stop Markus")
+            self.record()
+            workoutManager.start()
+
+            return
+        }
+        recording = false
+        workoutManager.stop()
+        self.listening.setHidden(true);
+        stopMarkusButton.setTitle("Start Markus")
         
     }
     
     @objc func validateCodeRequest()
     {
+        print("altitude: \(self.altitude)")
         print("\nparameters for /validateCode:  { validateCode:\(verificationCode), markusSerial: \(markusSerial!) }")
         let parameters = ["verification": verificationCode, "markusSerial": markusSerial]
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/validateCode",
@@ -428,8 +404,10 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         self.VerificationCode.setHidden(true);
         self.VerificationCodeLabel.setHidden(true);
         self.listening.setHidden(false);
+        self.stopMarkusButton.setHidden(false)
         //self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(setup_recorder), userInfo: nil, repeats: true)
         self.record();
+        workoutManager.start()
     }
     
     func getStatus(response: String) -> Int{
@@ -474,14 +452,13 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
     }
     
     func sendData() {
-        let heartRate = getHeartRate()
-        print("heartRate: ", heartRate)
         let  pa: [String: Any] =  [
             "id": 1,
             "lat": String(describing: self.lat),
             "lon": String(describing: self.long),
-            "heartRate": heartRate,
+            "heartRate": self.heartRate,
         ]
+        print("\nparameters for uploadMarkusData: \(pa)")
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/uploadMarkusData",
                    method: HTTPMethod.post, parameters: pa).response { response in
             if(response.data == nil){
@@ -491,4 +468,19 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
             print("reponse of uploadMarkusData: ", str)
         }
     }
+}
+
+
+extension InterfaceController: WorkoutManagerDelegate {
+
+    func workoutManager(_ manager: WorkoutManager, didChangeStateTo newState: WorkoutState) {
+        // Update title of control button.
+        print("workout state changed")
+    }
+
+    func workoutManager(_ manager: WorkoutManager, didChangeHeartRateTo newHeartRate: HeartRate) {
+        // Update heart rate label.
+        heartRate = newHeartRate.bpm
+    }
+
 }

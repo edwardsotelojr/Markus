@@ -6,8 +6,11 @@
 //
 
 import WatchKit
+import HealthKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WKExtendedRuntimeSessionDelegate {
+  
+    
     func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
         print("runTimeSession")
         print(reason)
@@ -36,7 +39,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WKExtendedRuntimeSession
             print("here in application did become active in Extension Delegate")
     }
 
-    func scheduleNextReload() {
+    /*func scheduleNextReload() {
         var targetDate:Date
         let currentDate = Date()
         targetDate = currentDate.addingTimeInterval(4)
@@ -53,6 +56,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WKExtendedRuntimeSession
             }
         )
     }
+    */
     func applicationWillResignActive() {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
@@ -84,7 +88,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WKExtendedRuntimeSession
                     print("backgroundTask")
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
-                self.scheduleNextReload()
+                //self.scheduleNextReload()
 
                 print("snapshotTask")
 

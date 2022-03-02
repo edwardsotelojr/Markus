@@ -13,6 +13,11 @@
 		AEAEFFFD93777B81F9FF941C /* Pods_MarkusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8598A88B98DF26D06A079211 /* Pods_MarkusTests.framework */; };
 		CA3A384CC958FC9B175FD709 /* Pods_Markus_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5779A6C0AFB7587C68C65A6F /* Pods_Markus_WatchKit_App.framework */; };
 		D519302A27C4B198008F6295 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519302927C4B198008F6295 /* Record.swift */; };
+		D523C9B327CEE83C00A33C9D /* AuthorizationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523C9B227CEE83C00A33C9D /* AuthorizationManger.swift */; };
+		D523C9B527CEE85700A33C9D /* HeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523C9B427CEE85700A33C9D /* HeartRateManager.swift */; };
+		D523C9B727CEE87400A33C9D /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523C9B627CEE87400A33C9D /* HeartRate.swift */; };
+		D523C9B927CEE88E00A33C9D /* HKUnit+BeatsPerMinute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523C9B827CEE88E00A33C9D /* HKUnit+BeatsPerMinute.swift */; };
+		D523C9BB27CEE8C000A33C9D /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D523C9BA27CEE8C000A33C9D /* WorkoutManager.swift */; };
 		D53C36632734E72900B4D1F6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D53C36622734E72900B4D1F6 /* HealthKit.framework */; };
 		D552845F27C6006500D2EA6C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D552845E27C6006500D2EA6C /* NotificationView.swift */; };
 		D5FCB37627228BF600FABEFA /* Markus WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D5FCB37527228BF600FABEFA /* Markus WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -98,6 +103,11 @@
 		C0CBE9D4BF0883C5B585F3DB /* Pods-Markus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markus.release.xcconfig"; path = "Target Support Files/Pods-Markus/Pods-Markus.release.xcconfig"; sourceTree = "<group>"; };
 		C7A28F4C86E873EB0BC9AF02 /* Pods-MarkusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarkusTests.debug.xcconfig"; path = "Target Support Files/Pods-MarkusTests/Pods-MarkusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D519302927C4B198008F6295 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		D523C9B227CEE83C00A33C9D /* AuthorizationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationManger.swift; sourceTree = "<group>"; };
+		D523C9B427CEE85700A33C9D /* HeartRateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateManager.swift; sourceTree = "<group>"; };
+		D523C9B627CEE87400A33C9D /* HeartRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
+		D523C9B827CEE88E00A33C9D /* HKUnit+BeatsPerMinute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HKUnit+BeatsPerMinute.swift"; sourceTree = "<group>"; };
+		D523C9BA27CEE8C000A33C9D /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		D53C36602734E72800B4D1F6 /* Markus WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Markus WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D53C36622734E72900B4D1F6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		D552845E27C6006500D2EA6C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -250,6 +260,11 @@
 				D5FCB39427228BF900FABEFA /* PushNotificationPayload.apns */,
 				D519302927C4B198008F6295 /* Record.swift */,
 				D552845E27C6006500D2EA6C /* NotificationView.swift */,
+				D523C9B227CEE83C00A33C9D /* AuthorizationManger.swift */,
+				D523C9B427CEE85700A33C9D /* HeartRateManager.swift */,
+				D523C9B627CEE87400A33C9D /* HeartRate.swift */,
+				D523C9B827CEE88E00A33C9D /* HKUnit+BeatsPerMinute.swift */,
+				D523C9BA27CEE8C000A33C9D /* WorkoutManager.swift */,
 			);
 			path = "Markus WatchKit Extension";
 			sourceTree = "<group>";
@@ -597,11 +612,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5FCB38E27228BF800FABEFA /* NotificationController.swift in Sources */,
+				D523C9B727CEE87400A33C9D /* HeartRate.swift in Sources */,
+				D523C9B927CEE88E00A33C9D /* HKUnit+BeatsPerMinute.swift in Sources */,
 				D5FCB39027228BF800FABEFA /* ComplicationController.swift in Sources */,
+				D523C9BB27CEE8C000A33C9D /* WorkoutManager.swift in Sources */,
 				D5FCB38C27228BF800FABEFA /* ExtensionDelegate.swift in Sources */,
 				D519302A27C4B198008F6295 /* Record.swift in Sources */,
+				D523C9B527CEE85700A33C9D /* HeartRateManager.swift in Sources */,
 				D5FCB38A27228BF800FABEFA /* InterfaceController.swift in Sources */,
 				D552845F27C6006500D2EA6C /* NotificationView.swift in Sources */,
+				D523C9B327CEE83C00A33C9D /* AuthorizationManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,7 +815,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -820,7 +840,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -843,7 +863,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -866,7 +886,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};

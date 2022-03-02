@@ -14,19 +14,19 @@
                     <items>
                         <imageView width="40" height="40" alignment="center" verticalAlignment="center" image="Markus" id="MCJ-VB-LI4"/>
                         <imageView alignment="left" hidden="YES" image="commandCode1" id="mVq-Mh-PXG"/>
+                        <button width="0.69999999999999996" alignment="center" verticalAlignment="bottom" hidden="YES" title="Stop Markus" id="ete-2Y-49d">
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <connections>
+                                <action selector="stopMarkus" destination="AgC-eL-Hgc" id="Gop-Pi-bim"/>
+                            </connections>
+                        </button>
                         <label width="1" widthAdjustment="7" alignment="center" verticalAlignment="center" text="Verification Code" textAlignment="center" id="uNo-7g-Pt5">
                             <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
                         </label>
                         <label alignment="center" verticalAlignment="center" id="4jV-hr-8QW">
                             <fontDescription key="font" type="system" weight="medium" pointSize="35"/>
                         </label>
-                        <label height="20" alignment="center" verticalAlignment="center" text="Markus AI is listening..." textAlignment="center" id="4Ye-Ys-Ri2"/>
-                        <button width="0.69999999999999996" alignment="center" title="Stop Markus" id="ete-2Y-49d">
-                            <fontDescription key="font" type="system" pointSize="15"/>
-                            <connections>
-                                <action selector="stopMarkus" destination="AgC-eL-Hgc" id="Gop-Pi-bim"/>
-                            </connections>
-                        </button>
+                        <label height="20" alignment="center" verticalAlignment="center" hidden="YES" text="Markus AI is listening..." textAlignment="center" id="4Ye-Ys-Ri2"/>
                     </items>
                     <connections>
                         <outlet property="VerificationCode" destination="4jV-hr-8QW" id="2zN-yZ-W6j"/>
@@ -34,6 +34,7 @@
                         <outlet property="commandCode1" destination="mVq-Mh-PXG" id="teh-as-8QY"/>
                         <outlet property="listening" destination="4Ye-Ys-Ri2" id="3td-EY-mm0"/>
                         <outlet property="markusLogo" destination="MCJ-VB-LI4" id="Dit-oR-CdE"/>
+                        <outlet property="stopMarkusButton" destination="ete-2Y-49d" id="8B3-HM-zcg"/>
                     </connections>
                 </controller>
             </objects>
