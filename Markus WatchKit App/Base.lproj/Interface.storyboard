@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch44"/>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
     </dependencies>
@@ -26,7 +25,9 @@
                         <label alignment="center" verticalAlignment="center" id="4jV-hr-8QW">
                             <fontDescription key="font" type="system" weight="medium" pointSize="35"/>
                         </label>
-                        <label height="20" alignment="center" verticalAlignment="center" hidden="YES" text="Markus AI is listening..." textAlignment="center" id="4Ye-Ys-Ri2"/>
+                        <label height="20" alignment="center" verticalAlignment="center" hidden="YES" text="Markus AI is listening..." textAlignment="center" id="4Ye-Ys-Ri2">
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="VerificationCode" destination="4jV-hr-8QW" id="2zN-yZ-W6j"/>
