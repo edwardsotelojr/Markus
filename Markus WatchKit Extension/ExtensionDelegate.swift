@@ -37,6 +37,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WKExtendedRuntimeSession
     func applicationDidBecomeActive() {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
             print("here in application did become active in Extension Delegate")
+        runTimeSession = WKExtendedRuntimeSession()
+        runTimeSession.delegate = self
+        runTimeSession.start()
     }
 
     /*func scheduleNextReload() {
@@ -62,9 +65,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WKExtendedRuntimeSession
         // Use this method to pause ongoing tasks, disable timers, etc.
         print("here in application will resign active in Extension Delegate")
         //scheduleNextReload()
-        runTimeSession = WKExtendedRuntimeSession()
-        runTimeSession.delegate = self
-        runTimeSession.start()
+    
     }
     
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {

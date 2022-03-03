@@ -47,6 +47,8 @@
 	<string>to monitor irregular changes in heart rate</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>for emergency cases</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>for emergency cases</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Markus AI requires microphone access to listen for loud noises around the user that can signal danger.</string>
 	<key>NSMotionUsageDescription</key>

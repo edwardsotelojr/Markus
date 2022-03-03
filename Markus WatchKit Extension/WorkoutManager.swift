@@ -26,8 +26,7 @@ extension WorkoutState {
     
 }
 
-protocol WorkoutManagerDelegate: class {
-
+protocol WorkoutManagerDelegate: AnyObject {
     func workoutManager(_ manager: WorkoutManager, didChangeStateTo newState: WorkoutState)
     func workoutManager(_ manager: WorkoutManager, didChangeHeartRateTo newHeartRate: HeartRate)
 
@@ -50,7 +49,7 @@ class WorkoutManager: NSObject {
 
     override init() {
         super.init()
-
+        
         // Configure heart rate manager.
         heartRateManager.delegate = self
     }
@@ -61,24 +60,31 @@ class WorkoutManager: NSObject {
         // If we have already started the workout, then do nothing.
         if (session != nil) {
             // Another workout is running.
-            return
+            print("session is not nil")
+            print("session: \(session)")
+            session = nil
+        }
+        if session?.state == .running {
+            session?.stopActivity(with: Date())
         }
 
+        if session?.state == .stopped {
+            session?.end()
+        }
         // Configure the workout session.
         let workoutConfiguration = HKWorkoutConfiguration()
         workoutConfiguration.activityType = .other
         workoutConfiguration.locationType = .indoor
-
         // Create workout session.
         do {
-            session = try HKWorkoutSession(configuration: workoutConfiguration)
+        session = try HKWorkoutSession(healthStore: healthStore, configuration: workoutConfiguration)
             session!.delegate = self
+            session!.startActivity(with: Date())
         } catch {
             fatalError("Unable to create Workout Session!")
         }
-
         // Start workout session.
-        healthStore.start(session!)
+        //healthStore.start(session!)
 
         // Update state to started and inform delegates.
         state = .started
@@ -97,9 +103,7 @@ class WorkoutManager: NSObject {
         // Stop the workout session.
         healthStore.end(session!)
 
-        // Clear the workout session.
-        session = nil
-
+    
         // Update state to stopped and inform delegates.
         state = .stopped
         delegate?.workoutManager(self, didChangeStateTo: state)
@@ -112,6 +116,8 @@ class WorkoutManager: NSObject {
 extension WorkoutManager: HKWorkoutSessionDelegate {
 
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+        print("fromState:  \(fromState)")
+        print("toState: \(toState)")
         switch toState {
         case .running:
             if fromState == .notStarted {
@@ -119,11 +125,13 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
             }
 
         default:
+            
             break
         }
     }
 
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
+        print("ERROR: \(error)")
         fatalError(error.localizedDescription)
     }
 

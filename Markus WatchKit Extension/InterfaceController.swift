@@ -60,7 +60,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         if CMAltimeter.isRelativeAltitudeAvailable() {
                    switch CMAltimeter.authorizationStatus() {
                     case .notDetermined: // Handle state before user prompt
-                    print("bb")
+                    print("altimeter not determined")
                     //fatalError("Awaiting user prompt...")
                     case .restricted: // Handle system-wide restriction
                     fatalError("Authorization restricted!")
@@ -72,8 +72,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                     fatalError("Unknown Authorization Status")
                     }
                    self.altimeter.startRelativeAltitudeUpdates(to: OperationQueue.main) {(data,error) in DispatchQueue.main.async {
-                       print("altitude: \(data?.relativeAltitude)")
-                       print("")
+                       self.alt = data?.relativeAltitude as! Double
                    }
                }
            }
@@ -101,7 +100,6 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                    locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
                    locationManager.startUpdatingLocation()
                     
-            print("herejhjk")
                }
         self.requestCode()
     }
@@ -110,22 +108,18 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         if let location = locations.first {
             self.lat = location.coordinate.latitude
             self.long = location.coordinate.longitude
-            print("lat: ", self.lat)
-            print("long: ", self.long)
             }
         }
     
     func check_recording_permission()
     {
-        print(type(of: AVAudioSession.sharedInstance().recordPermission))
-        print(AVAudioSession.sharedInstance().recordPermission)
         AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
             if granted {
-                print("granted")
+                print("recording permission granted")
                 self.isAudioRecordingGranted = true
                 self.recording = true
             } else{
-                print("not granted")
+                print("recording premission not granted")
                 self.isAudioRecordingGranted = false
 
             }
@@ -160,13 +154,13 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         var code = ""
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/requestCode",
             method: HTTPMethod.post, parameters: parameters).response { response in
-                /*if(response.data == nil){
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    print("error on request Code")
-                    self.requestCode()
-                    return
-                    }
-                }*/
+            if(response.response?.statusCode != 200){
+                self.VerificationCode.setText("") //UI Label
+                print("here")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        self.requestCode()
+                }
+            }else{
                 let str = String(decoding: response.data!, as: UTF8.self)
                 print("\n", str)
                 let start = String.Index(utf16Offset: 13, in: str)
@@ -184,7 +178,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                 }
             self.VerificationCode.setText(code) //UI Label
             self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.validateCodeRequest), userInfo: nil, repeats: true)
-        }
+            }}
     }
     
     func getDocumentsDirectory() -> URL
@@ -251,7 +245,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                                 if(response.data == nil){
                                     return
                                 }
-                                print("uploadSoundFile: ", response)
+                                print("\nuploadSoundFile: ", response)
                                 let str = String(decoding: response.data!, as: UTF8.self)
                                 print("filename: ", self.previousFilename)
                                 if((self.getCommandCode(response: str)) == 0){ // CHANGE BACK TO 1
@@ -324,15 +318,6 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
             self.markusLogo.setHidden(false)
     }
     
-      let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
-      let heartRateUnit = HKUnit(from: "count/min")
-      var heartRateQuery: HKQuery?
-    
-    @objc func getHeartRate() -> Void
-    {
-    
-       }
-    
     @IBOutlet weak var stopMarkusButton: WKInterfaceButton!
     
     @IBAction func stopMarkus() {
@@ -360,6 +345,9 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/validateCode",
                    method: HTTPMethod.post, parameters: parameters).response { response in
             if(response.data == nil){
+                return
+            }
+            if(response.response?.statusCode != 200){
                 return
             }
             let str = String(decoding: response.data!, as: UTF8.self)
@@ -456,7 +444,8 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
             "id": 1,
             "lat": String(describing: self.lat),
             "lon": String(describing: self.long),
-            "heartRate": self.heartRate,
+            "heartRate": String(describing: self.heartRate),
+            "relativeAltitude": String(describing: self.alt)
         ]
         print("\nparameters for uploadMarkusData: \(pa)")
         AF.request("http://ec2-3-140-217-222.us-east-2.compute.amazonaws.com:3000/uploadMarkusData",
@@ -465,7 +454,7 @@ class InterfaceController: WKInterfaceController, AVAudioRecorderDelegate, AVAud
                 return
             }
             let str = String(decoding: response.data!, as: UTF8.self)
-            print("reponse of uploadMarkusData: ", str)
+            print("\nreponse of uploadMarkusData: ", str)
         }
     }
 }
@@ -481,6 +470,7 @@ extension InterfaceController: WorkoutManagerDelegate {
     func workoutManager(_ manager: WorkoutManager, didChangeHeartRateTo newHeartRate: HeartRate) {
         // Update heart rate label.
         heartRate = newHeartRate.bpm
+        print(newHeartRate.bpm)
     }
 
 }
